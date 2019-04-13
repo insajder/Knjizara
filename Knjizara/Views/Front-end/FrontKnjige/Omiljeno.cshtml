@@ -27,20 +27,24 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach (var item in Model.KnjigeSaZanrovima)
-                                        {
-                                            <tr>
-                                                <td><a class="remove" href="@Url.Action("Delete", "FrontKnjige", new { id = item.knjiga.id_knjige })"><fa class="fa fa-close"></fa></a></td>
-                                                <td><a href="#"><img src="~/Images/@item.knjiga.slika" alt="img"></a></td>
-                                                <td><a class="aa-cart-title" href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></td>
-                                                <td>@Html.DisplayFor(modelItem => item.knjiga.cena)</td>
-                                                <td>Pripremljeno</td>
-                                                <td><a href="@Url.Action("OrderNow", "ShoppingCart")" class="aa-add-to-cart-btn">Dodaj u korpu</a></td>
-                                            </tr>
-                                        }
-                                            
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <tbody>
+                                            @foreach (var item in Model.KnjigeSaZanrovima)
+                                            {
+                                                <tr>
+                                                    <td><a class="remove" href="@Url.Action("Delete", "FrontKnjige", new { id = item.knjiga.id_knjige })"><fa class="fa fa-close"></fa></a></td>
+                                                    <td><a href="#"><img src="~/Images/@item.knjiga.slika" alt="img"></a></td>
+                                                    <td><a class="aa-cart-title" href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></td>
+                                                    <td>@Html.DisplayFor(modelItem => item.knjiga.cena)</td>
+                                                    <td>Pripremljeno</td>
+                                                    <td><a href="@Url.Action("OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige })" class="aa-add-to-cart-btn">Dodaj u korpu</a></td>
+                                                </tr>
+                                            }
+
                                         </tbody>
+                                    }
                                 </table>
                             </div>
                         </form>

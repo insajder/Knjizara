@@ -45,10 +45,10 @@ namespace Knjizara.Controllers
             }
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
+            
 
             return View("~/Views/Back-end/Knjige/Index.cshtml", knjigaZanroviViewModel);
         }
-        
 
         // GET: Knjige/Create
         public ActionResult Create()

@@ -37,7 +37,7 @@ namespace Knjizara.Controllers
             }
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
-            
+
             return View("~/Views/Front-end/FrontKnjige/Index.cshtml", knjigaZanroviViewModel);
         }
 
@@ -118,7 +118,7 @@ namespace Knjizara.Controllers
             List<Omiljeno> provera = db.Omiljenoes
                 .Where(o => o.id_knjige == id && o.id_osoba == trenutniKorisnikId)
                 .ToList();
-            if(provera == null || provera.Count == 0)
+            if (provera == null || provera.Count == 0)
             {
                 db.Omiljenoes.Add(omiljenaKnjiga);
                 db.SaveChanges();
@@ -127,14 +127,15 @@ namespace Knjizara.Controllers
             return RedirectToAction("Omiljeno", "FrontKnjige");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             Omiljeno omiljeno = db.Omiljenoes.Find(id);
             db.Omiljenoes.Remove(omiljeno);
             db.SaveChanges();
-            return RedirectToAction("Omiljeno", "FrontKnjige");
+            return RedirectToAction("Omiljeno");
         }
-        
 
         public ActionResult KreirajNarudzbinu(string Narudzbenice)
         {

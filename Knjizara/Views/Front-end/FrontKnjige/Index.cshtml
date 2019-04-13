@@ -24,15 +24,45 @@
     .naslov {
         font-size: 12px;
     }
-    #dugme{
+
+    #dugme {
         background-color: black;
     }
-    #dugme:hover {
-        background-color: #ff6666;
-    }
+
+        #dugme:hover {
+            background-color: #ff6666;
+        }
+
     .add:hover {
         border-bottom: 1px solid black;
     }
+    .aa-search-box {
+        margin-right: 5%;
+        margin-top: 13px;
+        position: relative;
+        margin: auto;
+        width: 50%;
+    }
+    .aa-search-box input[type="text"] {
+        border: 1px solid #ddd;
+        color: #555;
+        font-size: 14px;
+        font-family: "Raleway", sans-serif;
+        height: 40px;
+        padding: 10px 55px 10px 10px;
+        width: 100%;
+    }
+        .aa-search-box button {
+            border: medium none;
+            color: #fff;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            transition: all 0.5s;
+            background-color: #ff6666;
+        }
 </style>
 
 <h2 style="text-align:center">Knjige</h2>
@@ -40,22 +70,33 @@
         <li class="active"><a href="#men" data-toggle="tab">Novo</a></li>
         <li><a href="#women" data-toggle="tab">Top Lista</a></li>
     </ul>*@
-<table class=" table">
-    <ul class="aa-product-catg lista">
-        @foreach (var item in Model.KnjigeSaZanrovima)
-        {
 
-            <!-- start single product item -->
-            <li id="myGenre">
+<!-- search box -->
+<div class="aa-search-box">
+    <div class="input-group margin-bottom-sm">
+        <span class="input-group-addon" style="background-color: #ff6666; color: white;"><i class="fa fa-search"></i></span>
+        <input id="myInput" class="form-control" type="text" placeholder="Pretraga...">
+    </div>
+</div>
+    <!-- / search box -->
+    <table class=" table">
+        <ul id="myTable" class="aa-product-catg lista">
+            @foreach (var item in Model.KnjigeSaZanrovima)
+            {
+
+                <!-- start single product item -->
+                <li>
+                    @*id="myGenre"*@
                 <figure id="iWant">
                     <a class="aa-product-img" href="#" style="background-color: white">
-                        <img src="~/Images/@item.knjiga.slika" width="150" height="250" /><br>
+                        <img src="~/Images/@item.knjiga.slika" width="150" height="220" /><br>
                     </a>
                     <div class="add">
                         @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
                     </div>
                     <figcaption>
                         <h4 class="aa-product-title naslov"><a href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></h4>
+                        <h4 class="aa-product-title naslov"><a href="#">@Html.DisplayFor(modelItem => item.knjiga.Autori.ime).ToString()</a></h4>
                         <span class="aa-product-price">@Html.DisplayFor(modelItem => item.knjiga.cena) RSD</span><span class="aa-product-price"><del></del></span>
                     </figcaption>
                 </figure>
@@ -71,12 +112,23 @@
             </li>
 
         }
-    </ul>
+        </ul>
 
-</table>
-<div class="vise">
-    <a class="aa-browse-btn" href="#">Prikazi vise <span class="fas fa-long-arrow-alt-right"></span></a>
-</div>
+    </table>
+    <div class="vise">
+        <a class="aa-browse-btn" href="#">Prikazi vise <span class="fas fa-long-arrow-alt-right"></span></a>
+    </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/zanrovi.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/zanrovi.js"></script>
+    <script>
+        $(document).click(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                console.log(value);
+                $("#myTable li").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>

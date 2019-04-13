@@ -4,6 +4,104 @@
     ViewBag.Title = "Detaljnije";
     Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
 }
+<style>
+
+    .book {
+      margin-left: 10rem;
+      transform-style: preserve-3d;
+      position: relative;
+      height: 350px;
+      cursor: pointer;
+      backface-visibility: visible;
+    }
+
+    .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
+      transform-style: preserve-3d;
+      position: absolute;
+      width: 250px;
+      height: 100%;
+      top: 0; left: 0;
+      transform-origin: left center;
+      transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    }
+
+    .back {
+        background-color: grey;
+    }
+
+    .front, .page1, .page3, .page5 {
+      border-bottom-right-radius: .5em;
+      border-top-right-radius: .5em;
+    }
+
+    .back, .page2, .page4, .page6 {
+      border-bottom-right-radius: .5em;
+      border-top-right-radius: .5em;
+    }
+
+    .page1 {
+      background: #efefef;
+    }
+
+    .page2 {
+      background: #efefef;
+    }
+
+    .page3 {
+      background: #f5f5f5;
+    }
+
+    .page4 {
+      background: #f5f5f5;
+    }
+
+    .page5 {
+      background: #fafafa;
+    }
+
+    .page6 {
+      background: #fdfdfd;
+    }
+
+    .book:hover .front {
+      transform: rotateY(-160deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page1 {
+      transform: rotateY(-150deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page2 {
+      transform: rotateY(-30deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page3 {
+      transform: rotateY(-140deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page4 {
+      transform: rotateY(-40deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page5 {
+      transform: rotateY(-130deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .page6 {
+      transform: rotateY(-50deg) scale(1.1);
+      box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+    }
+
+    .book:hover .back {
+      transform: rotateY(-20deg) scale(1.1);
+    }
+</style>
 
 <h2 style="text-align:center">Detaljnije</h2>
 
@@ -17,10 +115,17 @@
                         <div class="row">
                             <!-- Modal view slider -->
                             <div class="col-md-5 col-sm-5 col-xs-12">
-                                <div class="aa-product-view-slider">
+                                <div class="aa-product-view-slider" style="background-color:white;">
                                     <div id="demo-1" class="simpleLens-gallery-container">
-                                        <div class="simpleLens-container">
-                                            <div class="simpleLens-big-image-container"><img src="~/Images/@Model.knjiga.slika" width="300" height="450" /></div>
+                                        <div class="book">
+                                            <div class="back"></div>
+                                            <div class="page6"><p style="font-size: 12px;">@Html.DisplayFor(modelItem => Model.knjiga.opis).ToString()</p></div>
+                                            <div class="page5"><img src="~/Images/bookmark.png" width="250" height="350" /></div>
+                                            <div class="page4"></div>
+                                            <div class="page3"></div>
+                                            <div class="page2"></div>
+                                            <div class="page1"></div>
+                                            <div class="front"><img src="~/Images/@Model.knjiga.slika" width="250" height="350" /></div>
                                         </div>
                                     </div>
                                 </div>
@@ -30,13 +135,13 @@
                                 <div class="aa-product-view-content">
                                     <h3>@Html.DisplayFor(modelItem => Model.knjiga.naziv).ToString().ToUpper()</h3>
                                     <div class="aa-price-block">
-                                        <span class="aa-product-view-price">@Html.DisplayFor(modelItem => Model.knjiga.cena).ToString()</span>
+                                        <span class="aa-product-view-price">@Html.DisplayFor(modelItem => Model.knjiga.cena).ToString() RSD</span>
                                         <p class="aa-product-avilability">@Html.DisplayFor(modelItem => Model.knjiga.Autori.ime).ToString()</p>
                                     </div>
                                     <p>@Html.DisplayFor(modelItem => Model.knjiga.opis).ToString()</p>
                                     <div class="aa-prod-quantity">
                                         <p class="aa-prod-category">
-                                            Category: 
+                                            Zanr: 
                                             @{
                                                 List<string> zanroviStringList = new List<string>();
                                                 Model.zanrovi.ForEach(z => zanroviStringList.Add(z.vrsta));
@@ -46,8 +151,8 @@
                                         </p>
                                     </div>
                                     <div class="aa-prod-view-bottom">
-                                        <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
-                                        <a class="aa-add-to-cart-btn" href="#">Wishlist</a>
+                                        <a class="aa-add-to-cart-btn" href="@Url.Action("OrderNow", "ShoppingCart", new { id =  Model.knjiga.id_knjige })">Dodaj u korpu</a>
+                                        <a class="aa-add-to-cart-btn" href="@Url.Action("DodajOmiljeno", "FrontKnjige", new { id =  Model.knjiga.id_knjige })">Dodaj u omiljeno</a>
                                     </div>
                                 </div>
                             </div>
