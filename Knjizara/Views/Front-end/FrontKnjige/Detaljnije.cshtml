@@ -1,0 +1,61 @@
+﻿@model Knjizara.ViewModels.KnjigaSaZanrovima
+
+@{
+    ViewBag.Title = "Detaljnije";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<h2 style="text-align:center">Detaljnije</h2>
+
+<!-- product category -->
+<section id="aa-product-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-product-details-area">
+                    <div class="aa-product-details-content">
+                        <div class="row">
+                            <!-- Modal view slider -->
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                <div class="aa-product-view-slider">
+                                    <div id="demo-1" class="simpleLens-gallery-container">
+                                        <div class="simpleLens-container">
+                                            <div class="simpleLens-big-image-container"><img src="~/Images/@Model.knjiga.slika" width="300" height="450" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal view content -->
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <div class="aa-product-view-content">
+                                    <h3>@Html.DisplayFor(modelItem => Model.knjiga.naziv).ToString().ToUpper()</h3>
+                                    <div class="aa-price-block">
+                                        <span class="aa-product-view-price">@Html.DisplayFor(modelItem => Model.knjiga.cena).ToString()</span>
+                                        <p class="aa-product-avilability">@Html.DisplayFor(modelItem => Model.knjiga.Autori.ime).ToString()</p>
+                                    </div>
+                                    <p>@Html.DisplayFor(modelItem => Model.knjiga.opis).ToString()</p>
+                                    <div class="aa-prod-quantity">
+                                        <p class="aa-prod-category">
+                                            Category: 
+                                            @{
+                                                List<string> zanroviStringList = new List<string>();
+                                                Model.zanrovi.ForEach(z => zanroviStringList.Add(z.vrsta));
+                                                string zanrovi = string.Join(", ", zanroviStringList);
+                                            }
+                                            @Html.DisplayFor(modelItem => zanrovi)
+                                        </p>
+                                    </div>
+                                    <div class="aa-prod-view-bottom">
+                                        <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
+                                        <a class="aa-add-to-cart-btn" href="#">Wishlist</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / product category -->

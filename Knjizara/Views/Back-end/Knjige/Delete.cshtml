@@ -1,0 +1,68 @@
+﻿@model Knjizara.Models.Knjige
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+<h2>Brisanje knjige</h2>
+
+<h3>Da li ste sigurni?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Naziv:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naziv)
+        </dd>
+
+        <dt>
+            Naslovna:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slika)
+        </dd>
+
+        <dt>
+            Opis:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opis)
+        </dd>
+
+        <dt>
+            Cena:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cena)
+        </dd>
+
+        <dt>
+            Autor:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autori.ime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Vrati se nazad", "Index")
+        </div>
+    }
+</div>
+
+
+<script src="~/Scripts/Knjizara.js"></script>

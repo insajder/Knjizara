@@ -1,0 +1,82 @@
+﻿@model Knjizara.ViewModels.KnjigaZanroviViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<style>
+    .lista {
+        padding: 2%;
+        margin: 0 auto;
+    }
+
+    .vise {
+        display: flex;
+        justify-content: center;
+    }
+
+    .lista li {
+        height: 330px;
+        width: 15%;
+    }
+
+    .naslov {
+        font-size: 12px;
+    }
+    #dugme{
+        background-color: black;
+    }
+    #dugme:hover {
+        background-color: #ff6666;
+    }
+    .add:hover {
+        border-bottom: 1px solid black;
+    }
+</style>
+
+<h2 style="text-align:center">Knjige</h2>
+@*<ul class="nav nav-tabs aa-products-tab">
+        <li class="active"><a href="#men" data-toggle="tab">Novo</a></li>
+        <li><a href="#women" data-toggle="tab">Top Lista</a></li>
+    </ul>*@
+<table class=" table">
+    <ul class="aa-product-catg lista">
+        @foreach (var item in Model.KnjigeSaZanrovima)
+        {
+
+            <!-- start single product item -->
+            <li id="myGenre">
+                <figure id="iWant">
+                    <a class="aa-product-img" href="#" style="background-color: white">
+                        <img src="~/Images/@item.knjiga.slika" width="150" height="250" /><br>
+                    </a>
+                    <div class="add">
+                        @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
+                    </div>
+                    <figcaption>
+                        <h4 class="aa-product-title naslov"><a href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></h4>
+                        <span class="aa-product-price">@Html.DisplayFor(modelItem => item.knjiga.cena) RSD</span><span class="aa-product-price"><del></del></span>
+                    </figcaption>
+                </figure>
+                <div class="aa-product-hvr-content">
+                    @if (Session["id_osoba"] != null)
+                    {
+                        <a id="dugme" href="@Url.Action("DodajOmiljeno", "FrontKnjige", new { id =  item.knjiga.id_knjige })" data-toggle="tooltip" data-placement="top" title="Dodaj u omiljeno"><span class="fas fa-heart" style="color: white"></span></a>
+                    }
+                    <a id="dugme" href="@Url.Action("Detaljnije", "FrontKnjige", new { id =  item.knjiga.id_knjige })" data-toggle2="tooltip" data-placement="top" title="Detaljnije"><span class="fa fa-search" style="color: white"></span></a>
+                </div>
+                <!-- product badge -->
+                <!--<span class="aa-badge aa-sale" href="#">SALE!</span>-->
+            </li>
+
+        }
+    </ul>
+
+</table>
+<div class="vise">
+    <a class="aa-browse-btn" href="#">Prikazi vise <span class="fas fa-long-arrow-alt-right"></span></a>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/zanrovi.js"></script>

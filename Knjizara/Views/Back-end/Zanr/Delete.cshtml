@@ -1,0 +1,34 @@
+﻿@model Knjizara.Models.Zanr
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+<h2>Brisanje zanra</h2>
+
+<h3>Da li ste sigurni?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Naziv zanra:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vrsta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Vrati se nazad", "Index")
+        </div>
+    }
+</div>
+

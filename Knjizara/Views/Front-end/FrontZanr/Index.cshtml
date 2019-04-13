@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Knjizara.Models.Zanr>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model) {
+        <li>
+            @Html.DisplayFor(modelItem => item.vrsta)
+        </li>
+}
+

@@ -1,0 +1,84 @@
+﻿@model Knjizara.ViewModels.KnjigaZanroviViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+<style>
+    #btnCreate{
+        margin-top: -10px;
+    }
+</style>
+
+<h2>Knjige</h2>
+
+<input type="text" id="myInput" placeholder="Pretraga" class="form-control" />
+<br>
+<p>
+    @Html.ActionLink("Kreiraj knjigu", "Create", null, new { @class = "btn btn-success pull-right", id = "btnCreate" })
+</p>
+<table id="datatable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Naziv
+            </th>
+            <th>
+                Slika
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>
+                Autor
+            </th>
+            <th>
+                Zanrovi
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.KnjigeSaZanrovima)
+    {
+        <tbody id="myTable">
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()
+                </td>
+                <td>
+                    <img src="~/Images/@item.knjiga.slika" width="100" height="150" /><br>
+                    @Html.DisplayFor(modelItem => item.knjiga.slika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.knjiga.opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.knjiga.cena) RSD
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.knjiga.Autori.ime)
+                </td>
+                <td>
+                    @{
+                        List<string> zanroviStringList = new List<string>();
+                        item.zanrovi.ForEach(z => zanroviStringList.Add(z.vrsta));
+                        string zanrovi = string.Join(", ", zanroviStringList);
+                    }
+                    @Html.DisplayFor(modelItem => zanrovi)
+                </td>
+                <td class="col-lg-1">
+                    @Html.ActionLink("Izmeni", "Edit", new { id = item.knjiga.id_knjige }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Obrisi", "Delete", new { id = item.knjiga.id_knjige }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/SearchPolje.js"></script>

@@ -1,0 +1,84 @@
+﻿@using Knjizara.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<h2 style="text-align:center">Moja Korpa</h2>
+
+<section id="cart-view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cart-view-area">
+                    <div class="cart-view-table">
+                        <form action="">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Naziv:</th>
+                                            <th>Cena:</th>
+                                            <th>Kolicina:</th>
+                                            <th>Total:</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var cart in (List<Cart>)Session["Cart"])
+                                        {
+                                            <tr>
+                                                <td><img src="~/Images/@cart.KnjigeKorpa.slika" alt="img"></td>
+                                                <td>@cart.KnjigeKorpa.naziv.ToUpper()</td>
+                                                <td>@cart.KnjigeKorpa.cena</td>
+                                                <td>@cart.Kolicina</td>
+                                                <td>@(String.Format("{0:N0}", cart.KnjigeKorpa.cena * cart.Kolicina))</td>
+                                                @*<td>@cart.KnjigeKorpa.cena * cart.Kolicina</td>*@
+                                                <td>
+                                                    @Html.ActionLink("x", "Delete", "ShoppingCart", new { id = cart.KnjigeKorpa.id_knjige },
+new { onclick = "return confirm ('Da li ste sigurni?');" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <!-- Cart Total view -->
+                        <div class="cart-view-total">
+                            <h4>Ukupna cena</h4>
+                            <table class="aa-totals-table">
+                                <tbody>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td>
+                                            @{
+                                                List<Cart> temp = (List<Cart>)Session["Cart"];
+                                                var total = String.Format("{0:N0}", temp.Sum(x => x.Kolicina * x.KnjigeKorpa.cena));
+                                            }
+                                            @total RSD
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @{
+                                List<string> narudzbenice = new List<string>();
+                                foreach (var cart in (List<Cart>)Session["Cart"])
+                                {
+                                    narudzbenice.Add($"{cart.KnjigeKorpa.id_knjige}:{cart.Kolicina}");
+                                }
+                                string narudzbeniceString = String.Join(",", narudzbenice.ToArray());
+                            }
+                            <a href="@Url.Action("KreirajNarudzbinu", "FrontKnjige", new { Narudzbenice = narudzbeniceString })" class="aa-cart-view-btn">Poruci</a>
+                        </div>
+                        @Html.ActionLink("Nastavi kupovinu?", "Index", "FrontKnjige")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<br>

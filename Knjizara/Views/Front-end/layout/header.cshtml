@@ -1,0 +1,131 @@
+﻿@using Knjizara.Models
+
+@{
+    Layout = null;
+}
+<style>
+    .knjiga-logo {
+        color: #ff6666;
+    }
+</style>
+
+<header id="aa-header">
+    <!-- start header top  -->
+    <div class="aa-header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-top-area">
+                        <!-- start header top left -->
+                        <div class="aa-header-top-left">
+                            <!-- free -->
+                            <div class="cellphone hidden-xs">
+                                <p><span class="fas fa-truck"></span>Besplatna isporuka</p>
+                            </div>
+                            <!-- free -->
+                            <div class="cellphone hidden-xs">
+                                <p><span class="fa fa-phone"></span>00-62-658-658</p>
+                            </div>
+                            <!-- / cellphone -->
+                        </div>
+                        <!-- / header top left -->
+                        <div class="aa-header-top-right">
+                            @if (Session["id_osoba"] == null)
+                            {
+                                <ul class="aa-head-top-nav-right">
+                                    <li><a href="@Url.Action("Prijava", "Korisnici")">Prijavite se</a></li>
+                                    <li><a href="@Url.Action("Create", "Korisnici")">Registrujte se</a></li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <ul class="aa-head-top-nav-right">
+                                    <li><a href="@Url.Action("Index", "Korisnici")">Profil</a></li>
+                                    <li><a href="@Url.Action("Odjava", "Korisnici")">Odjava</a></li>
+                                    <li><a href="@Url.Action("Omiljeno", "FrontKnjige")">Omiljene Knjige</a></li>
+                                </ul>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / header top  -->
+    <!-- start header bottom  -->
+    <div class="aa-header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-bottom-area">
+                        <!-- logo  -->
+                        <div class="aa-logo">
+                            <!-- Text based logo -->
+                            <a href="@Url.Action("Index", "Front")">
+                                <p><i class="fas fa-book-open knjiga-logo"></i><strong class="naziv">Book Store</strong> <span>Vas partner</span></p>
+                            </a>
+                            <!-- img based logo -->
+                            <!-- <a href="index.html"><img src="~/assets/Front-end/dailyShop/img/logo.jpg" alt="logo img"></a> -->
+                        </div>
+                        <!-- / logo  -->
+                        <!-- cart box -->
+                        <div class="aa-cartbox">
+                            <a class="aa-cart-link" href="#">
+                                <span class="fa fa-shopping-basket"></span>
+                                <span class="aa-cart-title">KORPA</span>
+                                <span class="aa-cart-notify">
+                                    @{
+                                        var korpica = 0;
+                                        if (Session["Cart"] != null)
+                                        {
+                                            korpica = ((List<Knjizara.Models.Cart>)Session["Cart"]).Count;
+                                        }
+                                    }
+                                    @korpica
+                                </span>
+                            </a>
+                            <div class="aa-cartbox-summary">
+                                <ul>
+                                    @{ if (Session["Cart"] != null)
+                                        {
+                                            foreach (var cart in (List<Knjizara.Models.Cart>)Session["Cart"])
+                                            {
+                                                <li>
+                                                    <a class="aa-cartbox-img" href="#"><img src="~/Images/@cart.KnjigeKorpa.slika" alt="~/assets/Front-end/dailyShop/img"></a>
+                                                    <div class="aa-cartbox-info">
+                                                        <h4><a href="#">@cart.KnjigeKorpa.naziv.ToUpper()</a></h4>
+                                                        <p>@cart.Kolicina x @cart.KnjigeKorpa.cena</p>
+                                                    </div>
+                                                    <a class="aa-remove-product" href="@Url.Action("Delete", "ShoppingCart", new { id = cart.KnjigeKorpa.id_knjige })"><span class="fa fa-times"></span></a>
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                        <li>Vasa korpa je prazna.</li>
+                                        }
+                                    }
+                                </ul>
+                                <a class="aa-cartbox-checkout aa-primary-btn" href="@Url.Action("Index", "ShoppingCart")">Moja Korpa</a>
+                            </div>
+                        </div>
+                        <!-- / cart box -->
+                        <!-- search box -->
+                        <div class="aa-search-box">
+                            <form action="">
+                                <input type="text" name="" id="" placeholder="Pretrazi sajt... ">
+                                <button type="submit" value="search"><span class="fa fa-search"></span></button>
+                            </form>
+                            </div>
+                        <!-- / search box -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / header bottom  -->
+</header>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>

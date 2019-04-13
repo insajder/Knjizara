@@ -1,0 +1,74 @@
+﻿@model Knjizara.Models.Narudzbina
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+<h2>Izmeni status porudzbine</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_narudzbine)
+    @Html.HiddenFor(model => model.id_osoba)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Korisnici.email, "Korisnik:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.Korisnici.email, new { htmlAttributes = new { @class = "form-control", id = "nazivKnjige", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.Korisnici.email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div style="display:none;" class="form-group">
+        @Html.LabelFor(model => model.datum, "Datum kreiranja:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.datum, new { htmlAttributes = new { @class = "form-control", id = "nazivKnjige", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.datum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div style="display:none;" class="form-group">
+        @Html.LabelFor(model => model.id_narudzbine, "Knjige:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.EditorFor(model => model.id_narudzbine, new { htmlAttributes = new { @class = "form-control", id = "nazivKnjige", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.id_narudzbine, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.status, "Status:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-6">
+            @Html.DropDownListFor(model => model.status, new List<SelectListItem>
+         {
+            new SelectListItem{ Text="Aktivna", Value = Knjizara.Models.AdminNarudzbina.AKTIVNA },
+            new SelectListItem{ Text="Poslata", Value = Knjizara.Models.AdminNarudzbina.POSLATA }
+         }, new { @class = "form-control"})
+            @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Sacuvaj" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Vrati se nazad", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+

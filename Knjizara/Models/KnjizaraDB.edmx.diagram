@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6f83588469864893a2e81b35610815dd" Name="Diagram1">
+        <EntityTypeShape EntityType="KnjizaraDBModel.Autori" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Knjige" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Knjige_Zanr" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Korisnici" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Narudzbina" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Narudzbina_Knjiga" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Omiljeno" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.VrstaKorisnika" Width="1.5" PointX="1.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnjizaraDBModel.Zanr" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Knjige_Autori" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Knjige_Zanr_Knjige" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Narudzbina_Knjiga_Knjige" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Omiljeno_Knjige" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Knjige_Zanr_Zanr" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Narudzbina_Osoba" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Omiljeno_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Osoba_VrstaOsobe" ManuallyRouted="false" />
+        <AssociationConnector Association="KnjizaraDBModel.FK_Narudzbina_Knjiga_Narudzbina" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

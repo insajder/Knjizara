@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Knjizara.Models.Korisnici>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<h2 style="text-align:center">Profil</h2>
+<div class="form-horizontal">
+    <table class="table">
+        <tr>
+            <th>
+                Ime:
+            </th>
+            <th>
+                Prezime:
+            </th>
+            <th>
+                Telefon:
+            </th>
+            <th>
+                Email:
+            </th>
+            <th>
+                Korisnicko ime:
+            </th>
+            <th></th>
+        </tr>
+
+
+        <tr>
+            <td>
+                @Session["ime"]
+            </td>
+            <td>
+                @Session["prezime"]
+            </td>
+            <td>
+                @Session["telefon"]
+            </td>
+            <td>
+                @Session["email"]
+            </td>
+            <td>
+                @Session["korisnicko_ime"]
+            </td>
+
+            <td>
+                @Html.ActionLink("Izmeni", "Edit", new { id = Model.FirstOrDefault().id_osoba }, new { @class = "btn btn-primary" })
+            </td>
+
+        </tr>
+
+    </table>
+    </div>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<!-- Start slider -->
+<section id="aa-slider">
+    <div class="aa-slider-area">
+        <div id="sequence" class="seq">
+            <div class="seq-screen">
+                <ul class="seq-canvas">
+                    <!-- single slide item -->
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/Images/img1.jpg" alt="Men slide img" />
+                        </div>
+                        <div class="seq-title">
+                            <h2 data-seq>Ponekad odgovore mozemo da pronadjemo na neocekivanim mestima.</h2>
+                            @*<p data-seq>Ponekad odgovore mozemo da pronadjemo na neocekivanim mestima.</p>*@
+                            <a data-seq href="@Url.Action("Index", "FrontKnjige")" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                        </div>
+                    </li>
+                    <!-- single slide item -->
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/Images/img2.jpeg" alt="Wristwatch slide img" />
+                        </div>
+                        <div class="seq-title">
+                            <h2 data-seq>Obilazak univerzuma na koji vas vode nase vrhunske knjige.</h2>
+                            @*<p data-seq>Obilazak univerzuma na koji vas vode nase vrhunske knjige.</p>*@
+                            <a data-seq href="@Url.Action("Index", "FrontKnjige")" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                        </div>
+                    </li>
+                    <!-- single slide item -->
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/Images/img4.jpeg" alt="Shoes slide img" />
+                        </div>
+                        <div class="seq-title">
+                            <h2 data-seq>Jedna ljubav. Dve price.</h2>
+                            @*<p data-seq>Izaberi bilo koju knjigu preko od 500 dinara i na poklon dobijas Golden Rose proizvod.</p>*@
+                            <a data-seq href="@Url.Action("Index", "FrontKnjige")" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- slider navigation btn -->
+            <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
+                <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
+                <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
+            </fieldset>
+        </div>
+    </div>
+</section>
+<!-- / slider -->

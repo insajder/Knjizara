@@ -1,0 +1,56 @@
+﻿ <!-- menu profile quick info -->
+<div class="profile clearfix">
+    <div class="profile_pic">
+        <img src="~/assets/Back-end/production/images/admin.jpg" alt="..." class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+        <span>Dobro dosli,</span>
+        @if (Session["id_osoba"] != null)
+        {
+            <h2>@Session["korisnicko_ime"]</h2>
+        }
+        </div>
+</div>
+<!-- /menu profile quick info -->
+<br />
+<!-- sidebar menu -->
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <ul class="nav side-menu">
+            <li>
+                <a><i class="fa fa-home"></i> Pocetna <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="@Url.Action("Index", "Back")">Statistika</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-cubes"></i> Zanrovi <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="@Url.Action("Index", "Zanr")">Izlistaj</a></li>
+                    <li><a href="@Url.Action("Create", "Zanr")">Kreiraj</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-book"></i> Autori <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="@Url.Action("Index", "Autori")">Izlistaj</a></li>
+                    <li><a href="@Url.Action("Create", "Autori")">Kreiraj</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-th-large"></i> Knjige <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="@Url.Action("Index", "Knjige")">Izlistaj</a></li>
+                    <li><a href="@Url.Action("Create", "Knjige")">Kreiraj</a></li>
+                </ul>
+            </li>
+            <li>
+                <a><i class="fa fa-shopping-basket"></i> Narudzbine <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="@Url.Action("Index", "AdminNarudzbina")">Izlistaj</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /sidebar menu -->

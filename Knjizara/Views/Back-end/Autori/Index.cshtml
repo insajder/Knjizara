@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Knjizara.Models.Autori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+<style>
+    #btnCreate {
+        margin-top: -10px;
+    }
+</style>
+
+<h2>Autori</h2>
+
+<input type="text" id="myInput" placeholder="Pretraga" class="form-control" />
+<br>
+<p>
+    @Html.ActionLink("Unesi autora", "Create", null, new { @class = "btn btn-success pull-right", id = "btnCreate" })
+</p>
+<table id="datatable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Ime autora:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody id="myTable">
+            <tr>
+                <td class="col-lg-6">
+                    @Html.DisplayFor(modelItem => item.ime)
+                </td>
+                <td>
+                    @Html.ActionLink("Izmeni", "Edit", new { id = item.id_autora }, new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Obrisi", "Delete", new { id = item.id_autora }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/SearchPolje.js"></script>

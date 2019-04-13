@@ -1,0 +1,96 @@
+﻿
+@{
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Informacije o brojevima u nasoj knjizari"
+	},
+	axisY: {
+		title: "No. from DataBase"
+	},
+	data: [{
+		type: "column",
+		dataPoints: @Html.Raw(ViewBag.DataPoints)
+	}]
+});
+chart.render();
+
+}
+</script>
+
+<style>
+    .kontent {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .prvi {
+        padding: 5px;
+        margin: 0 10px;
+        background-color: #a8e3d7;
+        color: black;
+    }
+
+    .drugi {
+        padding: 5px;
+        margin: 0 10px;
+        background-color: #66abab;
+        color: black;
+    }
+</style>
+
+
+
+
+
+<!-- top tiles -->
+<div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-book"></i> Ukupno knjiga</span>
+        <div class="count">@ViewData["SveKnjige"]</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Ukupno Korisnika</span>
+        <div class="count">@ViewData["SviKorisnici"]</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-male"></i> Ukupno muskaraca</span>
+        <div class="count green">@ViewData["UkupnoMuskaraca"]</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-female"></i> Ukupno zena</span>
+        <div class="count">@ViewData["UkupnoZena"]</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-shopping-basket"></i> Ukupno narudzbina</span>
+        <div class="count">@ViewData["SvePorudzbine"]</div>
+    </div>
+</div>
+<!-- /top tiles -->
+<!-- Chart-->
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!-- / Chart-->
+
+@*<div class="row">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Bar graph <small>Sessions</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas id="mybarChart" height="330" width="661" style="width: 441px; height: 220px;"></canvas>
+            </div>
+        </div>
+    </div>*@
+
+

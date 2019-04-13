@@ -1,0 +1,83 @@
+﻿@model Knjizara.ViewModels.KnjigaZanrViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Knjige", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Kreiraj knjigu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.naziv, "Naziv knjige:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(Model => Model.naziv, new { htmlAttributes = new { @class = "form-control", id = "nazivKnjige" } })
+                @Html.ValidationMessageFor(Model => Model.naziv, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.id_autora, "Autor:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownList("id_autora", new SelectList(Model.autori, "id_autora", "ime"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.id_autora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.odabraniZanrovi, "Zanrovi:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownList("odabraniZanrovi", new MultiSelectList(Model.zanrovi, "id_zanr", "vrsta"), htmlAttributes: new { @class = "form-control", multiple = "multiple", id = "option" })
+                @Html.ValidationMessageFor(Model => Model.odabraniZanrovi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.slika, "Naslovna: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @*@Html.TextBoxFor(Model => Model.slika, new { type = "file", @class = "input-file" } ) -- ovo radi za validaciju*@
+                @Html.TextBoxFor(Model => Model.PostedFile, new { type = "file" })
+                @Html.ValidationMessageFor(Model => Model.PostedFile, "", new { @class = "text-danger" })
+                <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.opis, "Opis:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.TextArea("opis", null, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.opis, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.cena, "Cena:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(Model => Model.cena, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(Model => Model.cena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kreiraj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Vrati se nazad", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/MultiSelect.js"></script>
+<script src="~/Scripts/VelikaSlova.js"></script>

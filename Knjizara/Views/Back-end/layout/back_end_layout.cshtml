@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/assets/Back-end/images/favicon.ico" type="image/ico" />
+    <title>Gentelella Alela! | </title>
+    <!-- Bootstrap -->
+    <link href="~/assets/Back-end/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/assets/Back-end/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/assets/Back-end/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/assets/Back-end/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/assets/Back-end/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/assets/Back-end/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/assets/Back-end/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/assets/Back-end/build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="@Url.Action("Index", "Front")" class="site_title"><i class="fa fa-book-open"></i> <span>Book Store</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    @{ Html.RenderPartial("~/Views/Back-end/layout/sidebar.cshtml"); }
+                </div>
+            </div>
+            @{ Html.RenderPartial("~/Views/Back-end/layout/topNav.cshtml"); }
+            <!-- page content -->
+
+            <div class="right_col" role="main">
+                @RenderBody()
+            </div>
+
+            <!-- /page content -->
+            @{ Html.RenderPartial("~/Views/Back-end/layout/footer.cshtml"); }
+        </div>
+        </div>
+    <!-- jQuery -->
+    <script src="~/assets/Back-end/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/assets/Back-end/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/assets/Back-end/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/assets/Back-end/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/assets/Back-end/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/assets/Back-end/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/assets/Back-end/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/assets/Back-end/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/assets/Back-end/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/assets/Back-end/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/assets/Back-end/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/assets/Back-end/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/assets/Back-end/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/assets/Back-end/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/assets/Back-end/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/assets/Back-end/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/assets/Back-end/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/assets/Back-end/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="~/assets/Back-end/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/assets/Back-end/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="~/assets/Back-end/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/assets/Back-end/vendors/moment/min/moment.min.js"></script>
+    <script src="~/assets/Back-end/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/assets/Back-end/build/js/custom.min.js"></script>
+
+</body>
+</html>

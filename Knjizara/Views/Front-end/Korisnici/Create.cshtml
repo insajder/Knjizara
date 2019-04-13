@@ -1,0 +1,119 @@
+﻿@model Knjizara.Models.Korisnici
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    .korisnici {
+        display: none;
+    }
+</style>
+
+<link href="@Url.Content("~/Content/jquery.qtip.css")" rel="stylesheet" />
+
+<script src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.qtip.min.js")" type="text/javascript"></script>
+
+<h2 style="text-align:center">Napravi nalog</h2>
+
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ime, "Ime:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.prezime, "Prezime:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.prezime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prezime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pol, "Pol:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                Muski
+                @Html.RadioButtonFor(model => model.pol, "Muski")
+                Zenski
+                @Html.RadioButtonFor(model => model.pol, "Zenski")
+                <br>
+                @Html.ValidationMessageFor(model => model.pol, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telefon, "Telefon:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.telefon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group korisnici">
+            @Html.LabelFor(model => model.id_vrsta_korisnika, "id_vrsta_korisnika", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.TextBoxFor(model => model.id_vrsta_korisnika, new { @Value = 2, @readonly = "readonly", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.id_vrsta_korisnika, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, "E-mail:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.korisnicko_ime, "Korisnicko ime:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.korisnicko_ime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.korisnicko_ime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lozinka, "Lozinka:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.PasswordFor(model => model.lozinka, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PotvrdjenaLozinka, "Ponovite lozinku:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.PasswordFor(model => model.PotvrdjenaLozinka, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PotvrdjenaLozinka, "", new { @class = "text-danger" })
+                <div></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kreiraj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}

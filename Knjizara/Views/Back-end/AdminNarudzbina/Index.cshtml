@@ -1,0 +1,65 @@
+﻿@model Knjizara.ViewModels.AdminNarudzbinaViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
+}
+
+<h2>Narudzbine</h2>
+
+<input type="text" id="myInput" placeholder="Pretraga" class="form-control" />
+<br>
+<table id="datatable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Korisnik
+            </th>
+            <th>
+                Datum narucivanja
+            </th>
+            <th>
+                Knjige
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.narudzbine)
+    {
+        <tbody id="myTable">
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Narucilac.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumNarucivanja)
+                </td>
+                <td>
+                    @foreach (var knjiga in item.Narudzbenice)
+                    {
+                        <ul>
+                            <li>
+                                @Html.DisplayFor(modelItem => knjiga.Naziv).ToString().ToUpper(),
+                                @Html.DisplayFor(modelItem => knjiga.Cena) RSD,
+                                @Html.DisplayFor(modelItem => knjiga.Kolicina) kom, <br>
+                                Cena: 
+                                @(String.Format("{0:N0}", knjiga.Cena * knjiga.Kolicina)) RSD
+                            </li>
+                        </ul>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td class="col-lg-1">
+                    @Html.ActionLink("Uredi", "Edit", new { id = item.IDNarudzbine }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>

@@ -1,0 +1,55 @@
+﻿@model Knjizara.Models.Korisnici
+
+@{
+    ViewBag.Title = "Prijava";
+    Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
+}
+
+<h2 style="text-align:center">Prijava</h2>
+
+@using (Html.BeginForm("Prijava", "Korisnici", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KorisnickoImePrijava, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.KorisnickoImePrijava, new { htmlAttributes = new { @class = "form-control", id = "korisnickoIme" } })
+            @Html.ValidationMessageFor(model => model.KorisnickoImePrijava, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LozinkaPrijava, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.LozinkaPrijava, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LozinkaPrijava, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <label style="margin-left: 200px;" class="field-validation-error text-danger mx-auto">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Zapamti </label><br>
+            <input type="submit" value="Prijava" class="btn btn-default" /><br>
+            <p class="aa-lost-password"><a href="#">Zaboravili ste lozinku?</a></p>
+            <div class="aa-register-now">
+                Nemate nalog?<a href="@Url.Action("Create", "Korisnici")">Registrujte se!</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+    <span id="message"></span>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

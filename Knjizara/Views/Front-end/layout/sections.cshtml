@@ -1,0 +1,75 @@
+﻿<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        left: 0;
+        top: 10%;
+        height: 200px; /* Full height */
+        background-color: white; /* Black w/ opacity */
+    }
+
+    #article-editor {
+        width: 600px;
+        margin-left: 300px;
+    }
+    #img{
+        height: 33px;
+    }
+</style>
+
+<!-- Client Brand -->
+<section id="aa-client-brand" style="margin-top: 3%">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-client-brand-area">
+                    <ul class="aa-client-brand-slider">
+                        <li><a href="#"><img id="img" src="~/assets/Front-end/dailyShop/img/client-brand-asp.png" alt="asp.net img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-jquery.png" alt="jquery img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-html5.png" alt="html5 img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-css3.png" alt="~/assets/Front-end/dailyShop/css3 img"></a></li>
+                        <li><a href="#"><img id="img" src="~/assets/Front-end/dailyShop/img/client-brand-vs.png" alt="vs img"></a></li>
+                        <li><a href="#"><img id="img" src="~/assets/Front-end/dailyShop/img/client-brand-mssql.png" alt="mssql img"></a></li>
+                        <li><a href="#"><img id="img" src="~/assets/Front-end/dailyShop/img/client-brand-asp.png" alt="asp.net img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-jquery.png" alt="jquery img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-html5.png" alt="html5 img"></a></li>
+                        <li><a href="#"><img src="~/assets/Front-end/dailyShop/img/client-brand-css3.png" alt="~/assets/Front-end/dailyShop/css3 img"></a></li>
+                        <li><a href="#"><img id="img" src="~/assets/Front-end/dailyShop/img/client-brand-vs.png" alt="vs img"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Client Brand -->
+<!-- Subscribe section -->
+<section id="aa-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-subscribe-area">
+                    <h3>newsletter </h3>
+                    <p>Budite informisani o najnovijim proizvodima i sniženjima!</p>
+                    <form action="" class="aa-subscribe-form">
+                        <input type="email" name="" id="emailNewsletter" placeholder="Enter your Email">
+                        <a type="button" class="btn" href="#article-editor" data-toggle="modal">
+                            <input type="submit" value="PRIJAVITE SE">
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Subscribe section -->
+<!-- Modal -->
+<div class="modal fade" id="article-editor" ">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3 style="text-align: center;">Uskoro ocekujte najnovije informacije.</h3>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+    </div>
+</div>
+<!-- / Modal -->

@@ -1,0 +1,52 @@
+﻿@using Knjizara.Models
+
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index", "Front")">Pocetna</a></li>
+                        <li><a href="@Url.Action("Index", "FrontKnjige")">Knjige</a></li>
+                        <li>
+                            <a href="#">Kategorije <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @foreach (var zanr in (List<Zanr>)Session["zanr_menu"])
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "FrontKnjige", new { odabraniZanrString = zanr.vrsta })">
+                                            @zanr.vrsta
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Action("Index", "Kontakt")">Kontakt</a></li>
+                        @{
+                            var osoba = Convert.ToInt32(Session["id_osoba"]);
+                        }
+                        @if (osoba == 6)
+                        {
+                            <li><a href="@Url.Action("Index", "Back")">Admin</a></li>
+                        }
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
