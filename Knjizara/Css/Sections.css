@@ -1,0 +1,17 @@
+﻿.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 10%;
+    height: 200px; /* Full height */
+    background-color: white; /* Black w/ opacity */
+}
+
+#article-editor {
+    width: 600px;
+    margin-left: 300px;
+}
+
+#img {
+    height: 33px;
+}

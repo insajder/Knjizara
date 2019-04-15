@@ -3,11 +3,8 @@
 @{
     Layout = null;
 }
-<style>
-    .knjiga-logo {
-        color: #ff6666;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="~/Css/Animation.css">
+<link rel="stylesheet" type="text/css" href="~/Css/Logo.css">
 
 <header id="aa-header">
     <!-- start header top  -->
@@ -70,6 +67,18 @@
                             <!-- <a href="index.html"><img src="~/assets/Front-end/dailyShop/img/logo.jpg" alt="logo img"></a> -->
                         </div>
                         <!-- / logo  -->
+                        <!-- animation-->
+                        <div class="bookshelf_wrapper">
+                            <ul class="books_list">
+                                <li class="book_item first"></li>
+                                <li class="book_item second"></li>
+                                <li class="book_item third"></li>
+                                <li class="book_item fourth"></li>
+                                <li class="book_item fifth"></li>
+                                <li class="book_item sixth"></li>
+                            </ul>
+                        </div>
+                        <!-- / animation-->
                         <!-- cart box -->
                         <div class="aa-cartbox">
                             <a class="aa-cart-link" href="#">
@@ -104,7 +113,7 @@
                                         }
                                         else
                                         {
-                                        <li>Vasa korpa je prazna.</li>
+                                            <li>Vasa korpa je prazna.</li>
                                         }
                                     }
                                 </ul>

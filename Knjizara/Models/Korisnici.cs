@@ -43,7 +43,7 @@ namespace Knjizara.Models
 
         public Nullable<int> id_vrsta_korisnika { get; set; }
 
-        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", 
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
             ErrorMessage = "Email adresa nije validna.")]
         //[DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Unesite email!")]
@@ -63,7 +63,7 @@ namespace Knjizara.Models
         [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("lozinka", ErrorMessage = "Lozinke se ne poklapaju, Pokusajte ponovo!")]
         public string PotvrdjenaLozinka { get; set; }
-        
+
         [DisplayName("Korisnicko ime:")]
         [Required(ErrorMessage = "Unesite korisnicko ime!")]
         public string KorisnickoImePrijava { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -22,7 +23,7 @@ namespace Knjizara.Controllers
             KnjigaZanroviViewModel knjigaZanroviViewModel = new KnjigaZanroviViewModel();
             List <KnjigaSaZanrovima> knjigeSaZanrovima = new List<KnjigaSaZanrovima>();
 
-            var knjiges = db.Knjiges.Include(k => k.Autori);
+            var knjiges = db.Knjiges.Include(k => k.Autori).OrderByDescending(i => i.id_knjige).ToList();
             foreach (Knjige knjiga in knjiges)
             {
                 List<Knjige_Zanr> knjigeZanrovi = db.Knjige_Zanr
@@ -43,9 +44,10 @@ namespace Knjizara.Controllers
                 };
                 knjigeSaZanrovima.Add(knjigaSaZanrovima);
             }
+            Debug.WriteLine("============" + knjiges);
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
-            
+            Debug.WriteLine("============" + knjigaZanroviViewModel);
 
             return View("~/Views/Back-end/Knjige/Index.cshtml", knjigaZanroviViewModel);
         }

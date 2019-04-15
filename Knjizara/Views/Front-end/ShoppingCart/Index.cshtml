@@ -38,7 +38,7 @@
                                                 @*<td>@cart.KnjigeKorpa.cena * cart.Kolicina</td>*@
                                                 <td>
                                                     @Html.ActionLink("x", "Delete", "ShoppingCart", new { id = cart.KnjigeKorpa.id_knjige },
-new { onclick = "return confirm ('Da li ste sigurni?');" })
+                                                            new { onclick = "return confirm ('Da li ste sigurni?');" })
                                                 </td>
                                             </tr>
                                         }

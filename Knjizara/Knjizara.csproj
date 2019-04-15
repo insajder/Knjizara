@@ -3847,6 +3847,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Css\Animation.css" />
+    <Content Include="Css\AnimBook.css" />
+    <Content Include="Css\BooksIndex.css" />
+    <Content Include="Css\BtnCreate.css" />
+    <Content Include="Css\Logo.css" />
+    <Content Include="Css\Order.css" />
+    <Content Include="Css\Sections.css" />
+    <Content Include="Css\Users.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\bookmark.png" />
@@ -4781,9 +4789,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\MultiSelect.js" />
-    <Content Include="Scripts\SearchPolje.js" />
+    <Content Include="Scripts\SearchField.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\VelikaSlova.js" />
+    <Content Include="Scripts\UpperCase.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -4807,7 +4815,6 @@
     <Compile Include="Controllers\BackController.cs" />
     <Compile Include="Controllers\FrontController.cs" />
     <Compile Include="Controllers\FrontKnjigeController.cs" />
-    <Compile Include="Controllers\FrontZanrController.cs" />
     <Compile Include="Controllers\IdentityResult.cs" />
     <Compile Include="Controllers\KnjigeController.cs" />
     <Compile Include="Controllers\KontaktController.cs" />
@@ -4892,7 +4899,6 @@
     <Content Include="Views\Back-end\Autori\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Front-end\FrontKnjige\Index.cshtml" />
-    <Content Include="Views\Front-end\FrontZanr\Index.cshtml" />
     <Content Include="Views\Front-end\Korisnici\Create.cshtml" />
     <Content Include="Views\Front-end\Korisnici\Edit.cshtml" />
     <Content Include="Views\Front-end\Korisnici\Index.cshtml" />
@@ -4920,7 +4926,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Statistika\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -3,17 +3,9 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
 }
-<style>
-    h2 {
-        text-align: center;
-    }
-
-    .korisnici {
-        display: none;
-    }
-</style>
 
 <link href="@Url.Content("~/Content/jquery.qtip.css")" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Css/Users.css">
 
 <script src="@Url.Content("~/Scripts/jquery-1.9.1.js")"></script>
 <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
@@ -21,7 +13,7 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.qtip.min.js")" type="text/javascript"></script>
 
-<h2 style="text-align:center">Napravi nalog</h2>
+<h2>Napravi nalog</h2>
 
 
 @using (Html.BeginForm(FormMethod.Post))

@@ -14,7 +14,7 @@ namespace Knjizara.Controllers
         private static string zanroviMeni = "zanr_menu";
 
         // GET: Front
-        public ActionResult Index(string search, int? i)
+        public ActionResult Index()
         {
             List<Zanr> zanrovi = db.Zanrs.OrderBy(z => z.vrsta).ToList();
             Session[zanroviMeni] = zanrovi;

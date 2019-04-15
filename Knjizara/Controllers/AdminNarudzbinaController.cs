@@ -17,7 +17,7 @@ namespace Knjizara.Controllers
         // GET: AdminNarudzbina
         public ActionResult Index()
         {
-            List<Narudzbina> narudzbinas = db.Narudzbinas.ToList();
+            List<Narudzbina> narudzbinas = db.Narudzbinas.OrderByDescending(i => i.id_narudzbine).ToList().ToList();
             List<AdminNarudzbina> adminNarudzbinas = AdminNarudzbina.TransformList(narudzbinas);
             AdminNarudzbinaViewModel adminNarudzbinaViewModel = new AdminNarudzbinaViewModel
             {

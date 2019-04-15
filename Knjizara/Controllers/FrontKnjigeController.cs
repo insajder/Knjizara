@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using Knjizara.Models;
 using Knjizara.ViewModels;
@@ -30,10 +31,10 @@ namespace Knjizara.Controllers
             var knjiges = db.Knjiges.Include(k => k.Autori);
             if (odabraniZanr != null)
             {
-                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.ToList(), odabraniZanr);
+                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList().ToList(), odabraniZanr);
             } else
             {
-                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.ToList());
+                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList().ToList());
             }
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
@@ -126,14 +127,18 @@ namespace Knjizara.Controllers
 
             return RedirectToAction("Omiljeno", "FrontKnjige");
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Delete(int id)
         {
-            Omiljeno omiljeno = db.Omiljenoes.Find(id);
-            db.Omiljenoes.Remove(omiljeno);
+            var trenutniKorisnikId = int.Parse(Session["id_osoba"].ToString());
+
+            List<Omiljeno> omiljeno = db.Omiljenoes
+                 .Where(o => o.id_knjige == id && o.id_osoba == trenutniKorisnikId)
+                 .ToList();
+
+            db.Omiljenoes.RemoveRange(omiljeno);
             db.SaveChanges();
+
             return RedirectToAction("Omiljeno");
         }
 

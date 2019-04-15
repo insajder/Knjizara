@@ -4,68 +4,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
 }
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<style>
-    .lista {
-        padding: 2%;
-        margin: 0 auto;
-    }
+<link rel="stylesheet" type="text/css" href="~/Css/BooksIndex.css">
+<link rel="stylesheet" type="text/css" href="~/Css/Users.css">
 
-    .vise {
-        display: flex;
-        justify-content: center;
-    }
-
-    .lista li {
-        height: 330px;
-        width: 15%;
-    }
-
-    .naslov {
-        font-size: 12px;
-    }
-
-    #dugme {
-        background-color: black;
-    }
-
-        #dugme:hover {
-            background-color: #ff6666;
-        }
-
-    .add:hover {
-        border-bottom: 1px solid black;
-    }
-    .aa-search-box {
-        margin-right: 5%;
-        margin-top: 13px;
-        position: relative;
-        margin: auto;
-        width: 50%;
-    }
-    .aa-search-box input[type="text"] {
-        border: 1px solid #ddd;
-        color: #555;
-        font-size: 14px;
-        font-family: "Raleway", sans-serif;
-        height: 40px;
-        padding: 10px 55px 10px 10px;
-        width: 100%;
-    }
-        .aa-search-box button {
-            border: medium none;
-            color: #fff;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            transition: all 0.5s;
-            background-color: #ff6666;
-        }
-</style>
-
-<h2 style="text-align:center">Knjige</h2>
+<h2>Knjige</h2>
 @*<ul class="nav nav-tabs aa-products-tab">
         <li class="active"><a href="#men" data-toggle="tab">Novo</a></li>
         <li><a href="#women" data-toggle="tab">Top Lista</a></li>
@@ -108,7 +52,6 @@
                     <a id="dugme" href="@Url.Action("Detaljnije", "FrontKnjige", new { id =  item.knjiga.id_knjige })" data-toggle2="tooltip" data-placement="top" title="Detaljnije"><span class="fa fa-search" style="color: white"></span></a>
                 </div>
                 <!-- product badge -->
-                <!--<span class="aa-badge aa-sale" href="#">SALE!</span>-->
             </li>
 
         }
@@ -121,14 +64,4 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/zanrovi.js"></script>
-    <script>
-        $(document).click(function () {
-            $("#myInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                console.log(value);
-                $("#myTable li").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
+<script src="~/Scripts/SearchField.js"></script>

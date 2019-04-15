@@ -29,7 +29,7 @@ namespace Knjizara.Models
         [RegularExpression(@"^[a-zA-Z\W\d_\s]+$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
         public string vrsta { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Knjige_Zanr> Knjige_Zanr { get; set; }
     }

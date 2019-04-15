@@ -4,17 +4,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
 }
-<style>
-    #btnCreate{
-        margin-top: 5px;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="~/Css/BtnCreate.css">
 
 <h2>Zanrovi</h2>
 
 <input type="text" id="myInput" placeholder="Pretrazi" class="form-control" />
 
-@Html.ActionLink("Kreiraj novi", "Create", null, new { @class = "btn btn-success pull-right", id = "btnCreate" })
+@Html.ActionLink("Kreiraj novi", "Create", null, new { @class = "btn btn-success pull-right", id = "btnCreate2" })
 
 <table id="datatable" class="table table-striped table-bordered">
     <thead>
@@ -43,6 +39,6 @@
 
     </table>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/SearchPolje.js"></script>
+<script src="~/Scripts/SearchField.js"></script>
 
 
