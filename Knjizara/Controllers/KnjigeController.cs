@@ -18,24 +18,36 @@ namespace Knjizara.Controllers
         private KnjizaraDBEntities db = new KnjizaraDBEntities();
 
         // GET: Knjige
-        public ActionResult Index(int currentPage)
+        public ActionResult Index(int? currentPage, string search)
         {
             int maxRows = 5;
+            int pageNumber = (currentPage ?? 1);
 
             KnjigaZanroviViewModel knjigaZanroviViewModel = new KnjigaZanroviViewModel();
             List <KnjigaSaZanrovima> knjigeSaZanrovima = new List<KnjigaSaZanrovima>();
 
-            var knjiges = db.Knjiges
+            List<Knjige> knjiges;
+            if (!String.IsNullOrEmpty(search))
+            {
+                knjiges = db.Knjiges
                 .Include(k => k.Autori)
+                .Where(k => k.naziv.Contains(search) || k.Autori.ime.Contains(search))
                 .OrderByDescending(i => i.id_knjige)
-                .Skip((currentPage - 1) * maxRows)
+                .Skip((pageNumber - 1) * maxRows)
                 .Take(maxRows)
                 .ToList();
+            } else
+            {
+                knjiges = db.Knjiges
+                .Include(k => k.Autori)
+                .OrderByDescending(i => i.id_knjige)
+                .Skip((pageNumber - 1) * maxRows)
+                .Take(maxRows)
+                .ToList();
+            }
 
             double pageCount = (double)((decimal)db.Knjiges.Count() / Convert.ToDecimal(maxRows));
             knjigaZanroviViewModel.PageCount = (int)Math.Ceiling(pageCount);
-
-            
 
             foreach (Knjige knjiga in knjiges)
             {
@@ -60,7 +72,7 @@ namespace Knjizara.Controllers
             }
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
-            knjigaZanroviViewModel.CurrentPageIndex = currentPage;
+            knjigaZanroviViewModel.CurrentPageIndex = pageNumber;
 
             return View("~/Views/Back-end/Knjige/Index.cshtml", knjigaZanroviViewModel);
         }

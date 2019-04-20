@@ -1,12 +1,11 @@
 ﻿@model Knjizara.ViewModels.KnjigaZanroviViewModel
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
 }
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/zanrovi.js"></script>
-<script src="~/Scripts/SearchField.js"></script>
+<script src="~/Scripts/SearchPost.js"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="~/Css/BooksIndex.css">
@@ -15,19 +14,19 @@
 <link rel="stylesheet" type="text/css" href="~/Css/BtnModal.css">
 
 <h2>Knjige</h2>
-@*<ul class="nav nav-tabs aa-products-tab">
-        <li class="active"><a href="#men" data-toggle="tab">Novo</a></li>
-        <li><a href="#women" data-toggle="tab">Top Lista</a></li>
-    </ul>*@
 
 <!-- search box -->
-<div class="aa-search-box">
-    <div class="input-group margin-bottom-sm">
-        <span class="input-group-addon" style="background-color: #ff6666; color: white;"><i class="fa fa-search"></i></span>
-        <input id="myInput" class="form-control" type="text" placeholder="Pretraga...">
+@using (Html.BeginForm("Index", "FrontKnjige", FormMethod.Get))
+{
+    <div class="aa-search-box">
+        <div class="input-group margin-bottom-sm" style="display: flex">
+            <button type="submit" class="input-group-addon form-control" style="background-color: #ff6666; color: white; width: 40px; height: 40px;"><i class="fa fa-search"></i></button>
+            @Html.TextBox("search")
+        </div>
     </div>
-</div>
+}
 <!-- / search box -->
+
 <table class=" table">
     <ul id="myTable" class="aa-product-catg lista">
         @foreach (var item in Model.KnjigeSaZanrovima)
@@ -40,16 +39,16 @@
                         <img src="~/Images/@item.knjiga.slika" width="150" height="220" /><br>
                     </a>
                     <div class="add">
-                    @if (Session["id_osoba"] != null)
-                    {
-                        @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
-                    }
-                    else
-                    {
-                        <a class="btn" href="#article-editor" data-toggle="modal">
-                            Add to card
-                        </a>
-                    }
+                        @if (Session["id_osoba"] != null)
+                        {
+                            @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
+                        }
+                        else
+                        {
+                            <a class="btn" href="#article-editor" data-toggle="modal">
+                                Add to card
+                            </a>
+                        }
                     </div>
                     <figcaption>
                         <h4 class="aa-product-title naslov"><a href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></h4>
@@ -80,7 +79,7 @@
         <li class="page-item">
             @if (i != Model.CurrentPageIndex)
             {
-                @Html.ActionLink(i.ToString(), "Index", "Knjige", new { currentPage = i, @class = "page-link" }, null)
+                @Html.ActionLink(i.ToString(), "Index", "FrontKnjige", new { currentPage = i, @class = "page-link" }, null)
             }
             else
             {

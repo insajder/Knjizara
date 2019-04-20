@@ -1,19 +1,23 @@
-﻿
-@model Knjizara.ViewModels.KnjigaZanroviViewModel
+﻿@model Knjizara.ViewModels.KnjigaZanroviViewModel
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
 }
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/SearchField.js"></script>
+<script src="~/Scripts/SearchPost.js"></script>
 
 <link rel="stylesheet" type="text/css" href="~/Css/BtnCreate.css">
 <link rel="stylesheet" type="text/css" href="~/Css/Paging.css">
 
 <h2>Knjige</h2>
 
-<input type="text" id="myInput" placeholder="Pretraga" class="form-control" />
+@using (Html.BeginForm("Index", "Knjige", FormMethod.Get))
+{
+    <p style="display: flex">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Pretraga" })
+        <button type="submit" class="input-group-addon form-control" style="background-color: blue; color: white; width: 40px; height: 34px;"><i class="fa fa-search"></i></button>
+    </p>
+}
 <br>
 <p>
     @Html.ActionLink("Kreiraj knjigu", "Create", null, new { @class = "btn btn-success pull-right", id = "btnCreate" })
@@ -78,13 +82,13 @@
             </tr>
         </tbody>
     }
-
 </table>
 
 <ul class="pagination paging">
     <li class="page-item disabled">
         <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
     </li>
+
     @for (int i = 1; i <= Model.PageCount; i++)
     {
         <li class="page-item">
@@ -99,7 +103,7 @@
         </li>
     }
     <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" "><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
     </li>
 </ul>
 
@@ -111,5 +115,4 @@
         aktivna.style.color = "white";
     }
 </script>
-
 

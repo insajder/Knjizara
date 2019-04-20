@@ -3852,6 +3852,7 @@
     <Content Include="Css\BooksIndex.css" />
     <Content Include="Css\BtnCreate.css" />
     <Content Include="Css\BtnModal.css" />
+    <Content Include="Css\Map.css" />
     <Content Include="Css\Order.css" />
     <Content Include="Css\Paging.css" />
     <Content Include="Css\Sections.css" />
@@ -4792,6 +4793,7 @@
     <Content Include="Scripts\MultiSelect.js" />
     <Content Include="Scripts\SearchField.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\SearchPost.js" />
     <Content Include="Scripts\UpperCase.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
