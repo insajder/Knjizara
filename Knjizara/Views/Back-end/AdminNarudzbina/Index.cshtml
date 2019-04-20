@@ -4,11 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
 }
+<link rel="stylesheet" type="text/css" href="~/Css/Paging.css">
 
 <h2>Narudzbine</h2>
 
-<input type="text" id="myInput" placeholder="Pretraga" class="form-control" />
-<br>
 <table id="datatable" class="table table-striped table-bordered">
     <thead>
         <tr>
@@ -46,7 +45,7 @@
                                 @Html.DisplayFor(modelItem => knjiga.Naziv).ToString().ToUpper(),
                                 @Html.DisplayFor(modelItem => knjiga.Cena) RSD,
                                 @Html.DisplayFor(modelItem => knjiga.Kolicina) kom, <br>
-                                Cena: 
+                                Cena:
                                 @(String.Format("{0:N0}", knjiga.Cena * knjiga.Kolicina)) RSD
                             </li>
                         </ul>
@@ -63,3 +62,34 @@
     }
 
 </table>
+
+<ul class="pagination paging">
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+    </li>
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        <li class="page-item">
+            @if (i != Model.CurrentPageIndex)
+            {
+                @Html.ActionLink(i.ToString(), "Index", "AdminNarudzbina", new { currentPage = i, @class = "page-link" }, null)
+            }
+            else
+            {
+                <span id="aktivna">@i</span>
+            }
+        </li>
+    }
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" "><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    </li>
+</ul>
+
+<script>
+    var aktivna = document.getElementById("aktivna");
+
+    if (aktivna != @Model.CurrentPageIndex) {
+        aktivna.style.background = "blue";
+        aktivna.style.color = "white";
+    }
+</script>

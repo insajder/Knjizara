@@ -5,7 +5,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Back-end/layout/back_end_layout.cshtml";
 }
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/SearchField.js"></script>
+
 <link rel="stylesheet" type="text/css" href="~/Css/BtnCreate.css">
+<link rel="stylesheet" type="text/css" href="~/Css/Paging.css">
 
 <h2>Knjige</h2>
 
@@ -77,5 +81,35 @@
 
 </table>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/SearchField.js"></script>
+<ul class="pagination paging">
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+    </li>
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        <li class="page-item">
+            @if (i != Model.CurrentPageIndex)
+            {
+                @Html.ActionLink(i.ToString(), "Index", "Knjige", new { currentPage = i, @class = "page-link" }, null)
+            }
+            else
+            {
+                <span id="aktivna">@i</span>
+            }
+        </li>
+    }
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" "><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    </li>
+</ul>
+
+<script>
+    var aktivna = document.getElementById("aktivna");
+
+    if (aktivna != @Model.CurrentPageIndex) {
+        aktivna.style.background = "blue";
+        aktivna.style.color = "white";
+    }
+</script>
+
+

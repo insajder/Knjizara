@@ -40,14 +40,14 @@
             <li>
                 <a><i class="fa fa-th-large"></i> Knjige <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="@Url.Action("Index", "Knjige")">Izlistaj</a></li>
+                    <li><a href="@Url.Action("Index", "Knjige", new { currentPage = 1 })">Izlistaj</a></li>
                     <li><a href="@Url.Action("Create", "Knjige")">Kreiraj</a></li>
                 </ul>
             </li>
             <li>
                 <a><i class="fa fa-shopping-basket"></i> Narudzbine <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="@Url.Action("Index", "AdminNarudzbina")">Izlistaj</a></li>
+                    <li><a href="@Url.Action("Index", "AdminNarudzbina", new { currentPage = 1 })">Izlistaj</a></li>
                 </ul>
             </li>
         </ul>

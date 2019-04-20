@@ -3851,8 +3851,9 @@
     <Content Include="Css\AnimBook.css" />
     <Content Include="Css\BooksIndex.css" />
     <Content Include="Css\BtnCreate.css" />
-    <Content Include="Css\Logo.css" />
+    <Content Include="Css\BtnModal.css" />
     <Content Include="Css\Order.css" />
+    <Content Include="Css\Paging.css" />
     <Content Include="Css\Sections.css" />
     <Content Include="Css\Users.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -4877,13 +4878,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AdminNarudzbinaViewModel.cs" />
-    <Compile Include="ViewModels\FileTypesAttribute.cs" />
-    <Compile Include="ViewModels\KnjigaNarudzbinaViewModel.cs" />
     <Compile Include="Models\KnjigaSaZanrovima.cs" />
     <Compile Include="ViewModels\KnjigaZanroviViewModel.cs" />
     <Compile Include="ViewModels\KnjigaZanrViewModel.cs" />
     <Compile Include="ViewModels\KorisniciListaViewModel.cs" />
-    <Compile Include="ViewModels\KorisniciViewModel.cs" />
     <Compile Include="ViewModels\ListaZanrova.cs" />
   </ItemGroup>
   <ItemGroup>

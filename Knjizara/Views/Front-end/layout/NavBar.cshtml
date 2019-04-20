@@ -14,20 +14,17 @@
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
-
-                </div>
-                <div class="navbar-collapse collapse">
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
                         <li><a href="@Url.Action("Index", "Front")">Pocetna</a></li>
-                        <li><a href="@Url.Action("Index", "FrontKnjige")">Knjige</a></li>
+                        <li><a href="@Url.Action("Index", "FrontKnjige", new { currentPage = 1 })">Knjige</a></li>
                         <li>
                             <a href="#">Kategorije <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @foreach (var zanr in (List<Zanr>)Session["zanr_menu"])
                                 {
                                     <li>
-                                        <a href="@Url.Action("Index", "FrontKnjige", new { odabraniZanrString = zanr.vrsta })">
+                                        <a href="@Url.Action("Index", "FrontKnjige", new { currentPage = 1, odabraniZanrString = zanr.vrsta })">
                                             @zanr.vrsta
                                         </a>
                                     </li>

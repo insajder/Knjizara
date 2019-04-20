@@ -17,8 +17,10 @@ namespace Knjizara.Controllers
         private KnjizaraDBEntities db = new KnjizaraDBEntities();
 
         // GET: Knjige
-        public ActionResult Index(string odabraniZanrString)
+        public ActionResult Index(string odabraniZanrString, int currentPage)
         {
+            int maxRows = 5;
+
             KnjigaZanroviViewModel knjigaZanroviViewModel = new KnjigaZanroviViewModel();
             List<KnjigaSaZanrovima> knjigeSaZanrovima = new List<KnjigaSaZanrovima>();
 
@@ -28,16 +30,26 @@ namespace Knjizara.Controllers
                 odabraniZanr = db.Zanrs.Where(z => z.vrsta == odabraniZanrString).First();
             }
 
-            var knjiges = db.Knjiges.Include(k => k.Autori);
+            var knjiges = db.Knjiges
+                .Include(k => k.Autori)
+                .OrderByDescending(i => i.id_knjige)
+                .Skip((currentPage - 1) * maxRows)
+                .Take(maxRows)
+                .ToList();
+
+            double pageCount = (double)((decimal)db.Knjiges.Count() / Convert.ToDecimal(maxRows));
+            knjigaZanroviViewModel.PageCount = (int)Math.Ceiling(pageCount);
+
             if (odabraniZanr != null)
             {
-                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList().ToList(), odabraniZanr);
+                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList(), odabraniZanr);
             } else
             {
-                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList().ToList());
+                knjigeSaZanrovima = KnjigaSaZanrovima.TransformList(knjiges.OrderByDescending(i => i.id_knjige).ToList());
             }
 
             knjigaZanroviViewModel.KnjigeSaZanrovima = knjigeSaZanrovima;
+            knjigaZanroviViewModel.CurrentPageIndex = currentPage;
 
             return View("~/Views/Front-end/FrontKnjige/Index.cshtml", knjigaZanroviViewModel);
         }

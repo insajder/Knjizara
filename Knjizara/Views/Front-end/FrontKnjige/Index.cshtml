@@ -4,10 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Front-end/layout/front_end_layout.cshtml";
 }
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/zanrovi.js"></script>
+<script src="~/Scripts/SearchField.js"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="~/Css/BooksIndex.css">
 <link rel="stylesheet" type="text/css" href="~/Css/Users.css">
+<link rel="stylesheet" type="text/css" href="~/Css/Paging.css">
+<link rel="stylesheet" type="text/css" href="~/Css/BtnModal.css">
 
 <h2>Knjige</h2>
 @*<ul class="nav nav-tabs aa-products-tab">
@@ -22,21 +27,29 @@
         <input id="myInput" class="form-control" type="text" placeholder="Pretraga...">
     </div>
 </div>
-    <!-- / search box -->
-    <table class=" table">
-        <ul id="myTable" class="aa-product-catg lista">
-            @foreach (var item in Model.KnjigeSaZanrovima)
-            {
-
-                <!-- start single product item -->
-                <li>
-                    @*id="myGenre"*@
+<!-- / search box -->
+<table class=" table">
+    <ul id="myTable" class="aa-product-catg lista">
+        @foreach (var item in Model.KnjigeSaZanrovima)
+        {
+            <!-- start single product item -->
+            <li>
+                @*id="myGenre"*@
                 <figure id="iWant">
                     <a class="aa-product-img" href="#" style="background-color: white">
                         <img src="~/Images/@item.knjiga.slika" width="150" height="220" /><br>
                     </a>
                     <div class="add">
+                    @if (Session["id_osoba"] != null)
+                    {
                         @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
+                    }
+                    else
+                    {
+                        <a class="btn" href="#article-editor" data-toggle="modal">
+                            Add to card
+                        </a>
+                    }
                     </div>
                     <figcaption>
                         <h4 class="aa-product-title naslov"><a href="#">@Html.DisplayFor(modelItem => item.knjiga.naziv).ToString().ToUpper()</a></h4>
@@ -53,15 +66,54 @@
                 </div>
                 <!-- product badge -->
             </li>
-
         }
-        </ul>
+    </ul>
 
-    </table>
-    <div class="vise">
-        <a class="aa-browse-btn" href="#">Prikazi vise <span class="fas fa-long-arrow-alt-right"></span></a>
+</table>
+
+<ul class="pagination paging">
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+    </li>
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        <li class="page-item">
+            @if (i != Model.CurrentPageIndex)
+            {
+                @Html.ActionLink(i.ToString(), "Index", "Knjige", new { currentPage = i, @class = "page-link" }, null)
+            }
+            else
+            {
+                <span id="aktivna">@i</span>
+            }
+        </li>
+    }
+    <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+    </li>
+</ul>
+
+<script>
+    var aktivna = document.getElementById("aktivna");
+
+    if (aktivna != @Model.CurrentPageIndex) {
+        aktivna.style.background = "blue";
+        aktivna.style.color = "white";
+    }
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="article-editor">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3 style="text-align: center;">Prvo se prijavite ili registrujte.</h3>
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/zanrovi.js"></script>
-<script src="~/Scripts/SearchField.js"></script>
+    <div class="row" style="display: flex; justify-content:space-around;">
+        <div class="col-4 text-center btn"><a class="dugme" href="@Url.Action("Prijava", "Korisnici")">Prijavite se</a></div>
+        <div class="col-4 text-center btn"><a class="dugme" href="@Url.Action("Create", "Korisnici")">Registrujte se</a></div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
+    </div>
+</div>
+<!-- / Modal -->

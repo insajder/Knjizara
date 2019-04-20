@@ -1,0 +1,19 @@
+﻿.dugme {
+    color: #ff6666;
+    font-weight: bold;
+    border: 1px solid #ff6666;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.dugme:hover {
+    color: white;
+    background-color: #ff6666;
+}
+
+.modal-footer {
+    border-top: none;
+}
+.modal-header {
+    border-bottom: none;
+}

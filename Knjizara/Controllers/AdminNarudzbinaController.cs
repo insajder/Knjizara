@@ -15,14 +15,23 @@ namespace Knjizara.Controllers
         private KnjizaraDBEntities db = new KnjizaraDBEntities();
 
         // GET: AdminNarudzbina
-        public ActionResult Index()
+        public ActionResult Index(int currentPage)
         {
-            List<Narudzbina> narudzbinas = db.Narudzbinas.OrderByDescending(i => i.id_narudzbine).ToList().ToList();
+            int maxRows = 5;
+
+            List<Narudzbina> narudzbinas = db.Narudzbinas.OrderByDescending(i => i.id_narudzbine).Skip((currentPage - 1) * maxRows)
+                .Take(maxRows).ToList();
+
             List<AdminNarudzbina> adminNarudzbinas = AdminNarudzbina.TransformList(narudzbinas);
             AdminNarudzbinaViewModel adminNarudzbinaViewModel = new AdminNarudzbinaViewModel
             {
                 narudzbine = adminNarudzbinas
             };
+
+            double pageCount = (double)((decimal)db.Knjiges.Count() / Convert.ToDecimal(maxRows));
+            adminNarudzbinaViewModel.PageCount = (int)Math.Ceiling(pageCount);
+
+            adminNarudzbinaViewModel.CurrentPageIndex = currentPage;
 
             return View("~/Views/Back-end/AdminNarudzbina/Index.cshtml", adminNarudzbinaViewModel);
         }
