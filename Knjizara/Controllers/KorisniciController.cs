@@ -16,8 +16,6 @@ namespace Knjizara.Controllers
     {
         private KnjizaraDBEntities db = new KnjizaraDBEntities();
 
-        public object IdentityManager { get; private set; }
-
         // GET: Korisnici/Create
         public ActionResult Prijava()
         {

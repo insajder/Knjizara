@@ -4818,7 +4818,6 @@
     <Compile Include="Controllers\BackController.cs" />
     <Compile Include="Controllers\FrontController.cs" />
     <Compile Include="Controllers\FrontKnjigeController.cs" />
-    <Compile Include="Controllers\IdentityResult.cs" />
     <Compile Include="Controllers\KnjigeController.cs" />
     <Compile Include="Controllers\KontaktController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
@@ -4883,7 +4882,6 @@
     <Compile Include="Models\KnjigaSaZanrovima.cs" />
     <Compile Include="ViewModels\KnjigaZanroviViewModel.cs" />
     <Compile Include="ViewModels\KnjigaZanrViewModel.cs" />
-    <Compile Include="ViewModels\KorisniciListaViewModel.cs" />
     <Compile Include="ViewModels\ListaZanrova.cs" />
   </ItemGroup>
   <ItemGroup>

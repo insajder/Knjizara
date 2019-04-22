@@ -26,11 +26,11 @@ namespace Knjizara.Models
 
         public int id_osoba { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z\W\d_\s]{1,40}$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
+        [RegularExpression(@"^[a-zšðèæžA-ZŠÐÈÆŽ]+(\s[a-zšðèæžA-ZŠÐÈÆŽ]+)?$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Unesite ime!")]
         public string ime { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z\W\d_\s]{1,40}$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
+        [RegularExpression(@"^[a-zšðèæžA-ZŠÐÈÆŽ]+(\s[a-zšðèæžA-ZŠÐÈÆŽ]+)?$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Unesite prezime!")]
         public string prezime { get; set; }
 

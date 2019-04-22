@@ -8,8 +8,9 @@ namespace Knjizara.Models
 {
     public class Kontakt
     {
-        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
+        [RegularExpression(@"^[a-zšđčćžA-ZŠĐČĆŽ]+(\s[a-zšđčćžA-ZŠĐČĆŽ]+)?$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Unesite ime!")]
+        [MaxLength(40, ErrorMessage = "Ime moze imati maksimalno 40 karaktera.")]
         public string Ime { get; set; }
 
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",

@@ -18,10 +18,10 @@
 <!-- search box -->
 @using (Html.BeginForm("Index", "FrontKnjige", FormMethod.Get))
 {
-    <div class="aa-search-box">
+    <div class="aa-search-box" style="display: flex; justify-content: center">
         <div class="input-group margin-bottom-sm" style="display: flex">
             <button type="submit" class="input-group-addon form-control" style="background-color: #ff6666; color: white; width: 40px; height: 40px;"><i class="fa fa-search"></i></button>
-            @Html.TextBox("search")
+            @Html.TextBox("search", null, new { @style = "width: 50rem;"})
         </div>
     </div>
 }

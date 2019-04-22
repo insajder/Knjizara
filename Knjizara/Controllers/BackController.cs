@@ -16,6 +16,8 @@ namespace Knjizara.Controllers
         // GET: Back
         public ActionResult Index()
         {
+            ViewData["PorudzbinePoruka"] = db.Narudzbinas.Where(p => p.status == "Aktivna").Count();
+
             ViewData["SveKnjige"] = db.Knjiges.Count();
             int knjige = db.Knjiges.Count();
 
@@ -38,8 +40,6 @@ namespace Knjizara.Controllers
             dataPoints.Add(new DataPoint("Muskarci", muskarci));
             dataPoints.Add(new DataPoint("Zene", zene));
             dataPoints.Add(new DataPoint("Porudzbine", narudzbine));
-            //dataPoints.Add(new DataPoint("Sophia", 25));
-            //dataPoints.Add(new DataPoint("Emma", 15));
 
             ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
 

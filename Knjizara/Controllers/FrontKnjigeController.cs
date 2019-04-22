@@ -69,18 +69,6 @@ namespace Knjizara.Controllers
             return View("~/Views/Front-end/FrontKnjige/Index.cshtml", knjigaZanroviViewModel);
         }
 
-        public ActionResult Search(string searchBy, string search)
-        {
-            if (searchBy == "naziv")
-            {
-                return View("~/Views/Front-end/FrontKnjige/Index.cshtml", db.Knjige_Zanr.Where(x => x.Knjige.naziv == search || search == null).ToList());
-            }
-            else
-            {
-                return View("~/Views/Front-end/FrontKnjige/Index.cshtml", db.Knjige_Zanr.Where(x => x.Knjige.naziv.StartsWith(search) || search == null).ToList());
-            }
-        }
-
         public ActionResult Detaljnije(int? id)
         {
             Knjige knjiga = db.Knjiges

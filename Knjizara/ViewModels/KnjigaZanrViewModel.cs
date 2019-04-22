@@ -15,6 +15,7 @@ namespace Knjizara.ViewModels
         public int id_knjige { get; set; }
 
         [MaxLength(50, ErrorMessage = "Naziv knjige moze imati maksimalno 50 karaktera.")]
+        [RegularExpression(@"^[a-zšđčćžA-ZŠĐČĆŽ]+(\s[a-zšđčćžA-ZŠĐČĆŽ]+)?$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
         public string naziv { get; set; }
 

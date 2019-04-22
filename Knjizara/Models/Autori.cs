@@ -26,7 +26,7 @@ namespace Knjizara.Models
 
         [Remote("IsAuthorExist", "Autori", ErrorMessage = "Autor vec postoji.")]
         [MaxLength(50, ErrorMessage = "Naziv knjige moze imati maksimalno 50 karaktera.")]
-        [RegularExpression(@"^[a-zA-Z\W\d_\s]+$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
+        [RegularExpression(@"^[a-zšðèæžA-ZŠÐÈÆŽ]+(\s[a-zšðèæžA-ZŠÐÈÆŽ]+)?$", ErrorMessage = "Numericki karakteri nisu dozvoljeni.")]
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
         public string ime { get; set; }
 
