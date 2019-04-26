@@ -4768,6 +4768,9 @@
     <Content Include="Models\KnjizaraDB.edmx.diagram">
       <DependentUpon>KnjizaraDB.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\KnjizaraDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

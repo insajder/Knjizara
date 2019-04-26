@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Knjizara.RouteConfig" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.MvcApplication" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.AdminNarudzbinaController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAAAAAAAAAAAAAAAAAAACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AdminNarudzbinaController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.AutoriController" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACAQAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AutoriController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.BackController" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\BackController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.FrontController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\FrontController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.FrontKnjigeController" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEAAAADAQAAAAAAAAAAABAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\FrontKnjigeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.KnjigeController" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\KnjigeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.KontaktController" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\KontaktController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.KorisniciController" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAQAAAAAAAAAAAAAAAAAEICAAEAQAAAAAA=</HashCode>
+      <FileName>Controllers\KorisniciController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.ListaZanrController" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ListaZanrController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.ShoppingCartController" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAFAAAAAAAEDAAAAAAA=</HashCode>
+      <FileName>Controllers\ShoppingCartController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Controllers.ZanrController" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICAQAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ZanrController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.AdminNarudzbina" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgEAQAQAAAACAAAQAAAABAAIAAgAAAAAACAAAA=</HashCode>
+      <FileName>Models\AdminNarudzbina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Cart" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.DataPoint" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\DataPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.KnjigaNarudzbenica" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAIAAAAAAgAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\KnjigaNarudzbenica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.KnjizaraDBEntities" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAQQASAAAAAAAAAAAAEIABAAAAAAAAEAAAAEg=</HashCode>
+      <FileName>Models\KnjizaraDB.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Autori" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Autori.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Knjige" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAQAAQAAACAAQAAAQAAAAgAAAAAAAAAAEAAAg=</HashCode>
+      <FileName>Models\Knjige.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Knjige_Zanr" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACACAAAAAAQAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Knjige_Zanr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Korisnici" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAEYAAASECAiAAAAAIEAAAAAAAAgBABAAAAAAAA=</HashCode>
+      <FileName>Models\Korisnici.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Narudzbina" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAGAAQAAAAAAAgAAAAAAAAg=</HashCode>
+      <FileName>Models\Narudzbina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Narudzbina_Knjiga" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAABAAAAAQAAACAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Models\Narudzbina_Knjiga.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Omiljeno" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAEQAAAEAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Omiljeno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.sysdiagram" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\sysdiagram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.VrstaKorisnika" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAACAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\VrstaKorisnika.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Zanr" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Zanr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.Models.Kontakt" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQCAQACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Kontakt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.ViewModels.KnjigaSaZanrovima" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAgAAAAQAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAg=</HashCode>
+      <FileName>Models\KnjigaSaZanrovima.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.ViewModels.AdminNarudzbinaViewModel" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AdminNarudzbinaViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.ViewModels.KnjigaZanroviViewModel" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAIIAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\KnjigaZanroviViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.ViewModels.KnjigaZanrViewModel" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAAAAAAAABAAACAAQAAAQAAAAgAAAAAAAAAAEIAAg=</HashCode>
+      <FileName>ViewModels\KnjigaZanrViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Knjizara.ViewModels.ListaZanrova" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModels\ListaZanrova.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
