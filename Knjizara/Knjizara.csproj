@@ -4871,6 +4871,7 @@
     <Compile Include="Models\Omiljeno.cs">
       <DependentUpon>KnjizaraDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Prijava.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>KnjizaraDB.tt</DependentUpon>
     </Compile>

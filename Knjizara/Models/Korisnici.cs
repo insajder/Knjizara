@@ -59,21 +59,10 @@ namespace Knjizara.Models
         [Required(ErrorMessage = "Unesite lozinku!")]
         public string lozinka { get; set; }
 
-        [Required(ErrorMessage = "Potvrdite lozinku!")]
-        [DataType(DataType.Password)]
-        [System.ComponentModel.DataAnnotations.Compare("lozinka", ErrorMessage = "Lozinke se ne poklapaju, Pokusajte ponovo!")]
-        public string PotvrdjenaLozinka { get; set; }
-
-        [DisplayName("Korisnicko ime:")]
-        [Required(ErrorMessage = "Unesite korisnicko ime!")]
-        public string KorisnickoImePrijava { get; set; }
-
-        [DisplayName("Lozinka:")]
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Unesite lozinku!")]
-        public string LozinkaPrijava { get; set; }
-
-        public string LoginErrorMessage { get; set; }
+        //[Required(ErrorMessage = "Potvrdite lozinku!")]
+        //[DataType(DataType.Password)]
+        //[System.ComponentModel.DataAnnotations.Compare("lozinka", ErrorMessage = "Lozinke se ne poklapaju, Pokusajte ponovo!")]
+        //public string PotvrdjenaLozinka { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Narudzbina> Narudzbinas { get; set; }

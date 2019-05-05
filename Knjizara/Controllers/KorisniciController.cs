@@ -19,7 +19,6 @@ namespace Knjizara.Controllers
         // GET: Korisnici/Create
         public ActionResult Prijava()
         {
-            //ViewBag.id_vrsta_korisnika = new SelectList(db.VrstaKorisnikas, "id_vrsta_korisnika", "vrsta");
             return View("~/Views/Front-end/Korisnici/Prijava.cshtml");
         }
 
@@ -28,7 +27,7 @@ namespace Knjizara.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Prijava(Korisnici korisnici)
+        public ActionResult Prijava(Prijava korisnici)
         {
             var korisnikInfo = db.Korisnicis.Where(x => x.korisnicko_ime == korisnici.KorisnickoImePrijava && x.lozinka == korisnici.LozinkaPrijava).FirstOrDefault();
             if (korisnikInfo == null)
@@ -82,14 +81,7 @@ namespace Knjizara.Controllers
         {
             if (ModelState.IsValid)
             {
-                //bool nameAlreadyExists = db.Korisnicis.ToList().Exists(p => p.korisnicko_ime.Equals(korIme, StringComparison.CurrentCultureIgnoreCase));
-                //if (nameAlreadyExists)
-                //{
-                //    ModelState.AddModelError(string.Empty, "Student Name already exists.");
-                //    return View(nameAlreadyExists);
-                //}
-
-                korisnici.PotvrdjenaLozinka = korisnici.lozinka;
+                //korisnici.PotvrdjenaLozinka = korisnici.lozinka;
 
                 db.Korisnicis.Add(korisnici);
                 db.SaveChanges();
