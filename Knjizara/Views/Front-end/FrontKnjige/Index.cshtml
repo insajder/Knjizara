@@ -41,12 +41,12 @@
                     <div class="add">
                         @if (Session["id_osoba"] != null)
                         {
-                            @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
+                            @Html.ActionLink("Dodaj u korpu", "OrderNow", "ShoppingCart", new { id = item.knjiga.id_knjige }, null)
                         }
                         else
                         {
                             <a class="btn" href="#article-editor" data-toggle="modal">
-                                Add to card
+                                Dodaj u korpu
                             </a>
                         }
                     </div>
